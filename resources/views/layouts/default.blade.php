@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
 
     <title>My Layout</title>
-    <link rel="stylesheet" href="{{ mix('scss/app.scss') }}">
+    <link rel="stylesheet" href="{{ mix('/scss/app.css') }}">
 </head>
 <body>
     <h1>Default Layout</h1>
     @yield('content')
 
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 
 </body>
 </html>

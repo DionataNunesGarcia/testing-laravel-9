@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use \App\Http\Controllers\BusinessesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/user/{user}', [UserController::class, 'show']);
+
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/businesses', [BusinessesController::class, 'index'])
+    ->name('businesses.index');
+
+Route::post('/businesses/store', [BusinessesController::class, 'store'])
+    ->name('businesses.store');
 
