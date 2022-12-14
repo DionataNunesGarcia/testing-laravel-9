@@ -5,7 +5,7 @@
     @foreach($errors->all() as $error)
         {{ $error }}<br>
     @endforeach
-    <form method="POST" action="{{ route('businesses.store') }}">
+    <form enctype="multipart/form-data" method="POST" action="{{ route('businesses.store') }}">
         @csrf
         <input type="text" name="name" placeholder="Name" value="{{ old('name') }}">
         <br/>
@@ -25,6 +25,12 @@
             {{$message}}
         @enderror
         <br/>
+        <input type="file" name="cover" placeholder="Cover">
+        <br/>
+        @error('cover')
+            {{$message}}
+        @enderror
+        <br/>
         <button type="submit">Save</button>
     </form>
 
@@ -35,6 +41,8 @@
     <table>
         <thead>
             <tr>
+                <th>
+                </th>
                 <th>
                     Name
                 </th>
@@ -49,6 +57,11 @@
         <tbody>
             @foreach($businesses as $business)
                 <tr>
+                    <td>
+                        @if($business->cover)
+                            <img src="{{ Illuminate\Support\Facades\Storage::disk('public')->url($business->cover)}}" width="100"/>
+                        @endif
+                    </td>
                     <td>{{$business->name}}</td>
                     <td>{{$business->email}}</td>
                     <td>{{$business->address}}</td>

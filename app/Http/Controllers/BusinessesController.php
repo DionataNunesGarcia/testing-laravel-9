@@ -26,8 +26,10 @@ class BusinessesController extends Controller
             'name' => 'required|string',
             'email' => 'required|email',
             'address' => 'string',
+            'cover' => 'file',
         ]);
-
+        $file = $values['cover'];
+        $values['cover'] = $file->store('covers', 'public');
         Business::create($values);
         return Redirect::route('businesses.index');
     }
