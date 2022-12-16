@@ -13,7 +13,7 @@ class BusinessesController extends Controller
      */
     public function index()
     {
-        $businesses = Business::all();
+        $businesses = Business::paginate(5);
         return view('Businesses/index', compact('businesses'));
     }
 

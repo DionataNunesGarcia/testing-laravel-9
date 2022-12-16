@@ -69,4 +69,5 @@
             @endforeach
         </tbody>
     </table>
+    {{$businesses->onEachSide(2)->links()}}
 @endsection

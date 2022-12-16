@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
 
     <title>My Layout</title>
-    <link rel="stylesheet" href="{{ mix('/scss/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
     <h1>Default Layout</h1>
